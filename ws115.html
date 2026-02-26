@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="ke2a19, イイミンテイン">
+    <title>HEALTH SUPPORT</title>
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <link rel="stylesheet" href="./css/ws115.css">
+ 
+</head>
+ 
+<body>
+    <h1 id="appTitle">🏥 ヘルスサポート - 近くの病院案内</h1>
+   
+    <div class="controlArea">
+        <div class="box">
+            <label id="langLabel">🌐 言語：</label>
+            <select id="langSelect" onchange="changeLanguage()">
+                <option value="ja" selected>日本語</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+       
+        <div class="box">
+            <label id="fontLabel">🔤 文字サイズ：</label>
+            <select id="fontSizeSelect" onchange="changeFontSize()">
+                <option value="14">小</option>
+                <option value="16" selected>中</option>
+                <option value="20">大 </option>
+                <option value="24">特大</option>
+            </select>
+        </div>
+    </div>
+   
+    <div class="box">
+        <h2 id="symptomTitle"></h2>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <input type="text" id="symptomInput" list="historyList" placeholder="" style="flex: 1;">
+            <datalist id="historyList"></datalist>
+            <button id="searchBtn" onclick="checkSymptom()"></button>
+        </div>
+        <p id="entered" style="color: #666; margin-top: 10px; font-size: 14px;"></p>
+        <p id="symptomExample" style="color: #666; font-size: 0.9em;"></p>
+    </div>
+   
+    <div class="box">
+        <h2 id="resultTitle">📋 Results</h2>
+        <div class="result-section">
+            <div class="result-card">
+                <div style="font-size: 16px; color: #666;" id="deptLabel">Department</div>
+                <div class="department-name" id="departmentDisplay">-</div>
+            </div>
+           
+            <div class="advice-box" id="adviceDisplay"></div>
+           
+            <div class="info-box" id="hospitalDisplay"></div>
+           
+            <div id="warningDisplay" class="warningText"></div>
+        </div>
+    </div>
+   
+    <div class="box">
+        <h2 id="mapTitle">🗺️ Hospitals Near You</h2>
+        <div class="map-container">
+            <iframe id="mapFrame" loading="lazy" allowfullscreen></iframe>
+        </div>
+        <p style="color: #666; font-size: 0.9em; margin-top: 10px;" id="mapNote"></p>
+    </div>
+    <script src="./js/ws115.js">
+        </script>
+</body>
+</html>
